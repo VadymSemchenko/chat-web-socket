@@ -3,24 +3,24 @@ import ReactDOM from 'react-dom'
 import { Provider } from 'react-redux'
 import { createStore, applyMiddleware } from 'redux'
 import createSagaMiddleware from 'redux-saga'
+import { composeWithDevTools } from 'redux-devtools-extension';
 
 import './index.css'
 import App from './App'
 import reducers from './reducers'
 import handleNewMessage from './sagas'
 import setupSocket from './sockets'
-import username from './helpers/userName'
 
 const sagaMiddleware = createSagaMiddleware()
 
 const store = createStore(
   reducers,
-  applyMiddleware(sagaMiddleware)
+  composeWithDevTools(applyMiddleware(sagaMiddleware))
 )
 
-const socket = setupSocket(store.dispatch, username)
+const socket = setupSocket(store.dispatch)
 
-sagaMiddleware.run(handleNewMessage, { socket, username })
+sagaMiddleware.run(handleNewMessage, socket)
 
 ReactDOM.render(
   <Provider store={store}>

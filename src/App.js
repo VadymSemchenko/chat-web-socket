@@ -1,4 +1,3 @@
-
 import React, { Component } from "react"
 import "./App.css"
 import { Sidebar } from "./containers/Sidebar"
@@ -11,8 +10,8 @@ class App extends Component {
       <div id="container">
         <Sidebar />
         <section id="main">
-          <MessagesList />
           <AddMessage />
+          <MessagesList />
         </section>
       </div>
     )

@@ -9,7 +9,9 @@
     "react-redux": "^5.1.1",
     "react-scripts": "2.1.1",
     "redux": "^4.0.1",
+    "redux-devtools-extension": "^2.13.7",
     "redux-saga": "^0.16.2",
+    "uuid": "^3.3.2",
     "ws": "^6.1.2"
   },
   "scripts": {
